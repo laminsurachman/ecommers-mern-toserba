@@ -7,8 +7,10 @@ import { IconButton } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useState } from "react";
 import { Menu, MenuItem } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const navigate = useNavigate();
   const user = "admin";
   const userMenu = ["Profile", "Orders", "Logout"];
   const adminMenu = ["Setting", "Dashboard", "Logout"];
@@ -23,6 +25,9 @@ function Navbar() {
     setOpen(null);
   };
 
+  const toCart = () => {
+    navigate("/cart");
+  };
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -39,8 +44,7 @@ function Navbar() {
               gap: "20px",
             }}
           >
-            <IconButton color="inherit">
-              {" "}
+            <IconButton color="inherit" onClick={toCart}>
               <ShoppingCartCheckoutOutlinedIcon />
             </IconButton>
             {user === "user" ? (

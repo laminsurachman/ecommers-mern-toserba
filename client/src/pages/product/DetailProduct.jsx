@@ -6,6 +6,7 @@ import { orange } from "@mui/material/colors";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { useState } from "react";
+import Order from "./Order";
 const createMarkUp = (html) => {
   return { __html: html };
 };
@@ -128,7 +129,9 @@ const DetailProduct = () => {
             <Typography dangerouslySetInnerHTML={createMarkUp(product.desc)} />
           </Box>
         </Box>
-        <Box sx={{ display: "flex", flex: 1 }}>Order</Box>
+        <Box sx={{ display: "flex", flex: 1, justifyContent: "center" }}>
+          <Order />
+        </Box>
       </Box>
       <Footer />
     </Box>
