@@ -11,8 +11,17 @@ import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navigate = useNavigate();
-  const user = "admin";
-  const userMenu = ["Profile", "Orders", "Logout"];
+  const user = "user";
+  const userMenu = [
+    {
+      menu: "Profile",
+      link: "/profile",
+    },
+    {
+      menu: "Orders",
+      link: "/order",
+    },
+  ];
   const adminMenu = ["Setting", "Dashboard", "Logout"];
 
   const [open, setOpen] = useState(null);
@@ -28,15 +37,25 @@ function Navbar() {
   const toCart = () => {
     navigate("/cart");
   };
+
+  const toHome = () => navigate("/");
+
+  const toPage = (link) => {
+    navigate(link);
+    menuClose();
+  };
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          <img
-            src="/logo2.png"
-            alt="logo"
-            style={{ height: "100px", width: " 120px", objectFit: "contain" }}
-          />
+          <Box sx={{ cursor: "pointer" }} onClick={toHome}>
+            {" "}
+            <img
+              src="/logo2.png"
+              alt="logo"
+              style={{ height: "100px", width: " 120px", objectFit: "contain" }}
+            />
+          </Box>
           <Box
             sx={{
               display: "flex",
@@ -68,11 +87,18 @@ function Navbar() {
                   open={Boolean(open)}
                   onClose={menuClose}
                 >
-                  {userMenu.map((item) => (
-                    <MenuItem onClick={menuClose} key={item}>
-                      {item}
+                  {userMenu.map((item, index) => (
+                    <MenuItem
+                      onClick={() => {
+                        menuClose();
+                        toPage(item.link);
+                      }}
+                      key={index}
+                    >
+                      {item.menu}
                     </MenuItem>
                   ))}
+                  <MenuItem>Logout</MenuItem>
                 </Menu>
               </>
             ) : user === "admin" ? (
