@@ -5,6 +5,7 @@ import DetailProduct from "./pages/product/DetailProduct";
 import Cart from "./pages/cart/Cart";
 import Profile from "./pages/users/Profile";
 import Order from "./pages/users/order/Orders";
+import Dashboard from "./pages/admin/dashboard/Dashboard";
 function App() {
   return (
     <Router>
@@ -14,6 +15,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />{" "}
         <Route path="/profile" element={<Profile />} />{" "}
         <Route path="/order" element={<Order />} />
+        <Route path="/admin-dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );

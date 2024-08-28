@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navigate = useNavigate();
-  const user = "user";
+  const user = "admin";
   const userMenu = [
     {
       menu: "Profile",
@@ -22,7 +22,10 @@ function Navbar() {
       link: "/order",
     },
   ];
-  const adminMenu = ["Setting", "Dashboard", "Logout"];
+  const adminMenu = [
+    { menu: "setting", link: "/admin-setting" },
+    { menu: "Dashboard", link: "/admin-dashboard" },
+  ];
 
   const [open, setOpen] = useState(null);
 
@@ -98,7 +101,6 @@ function Navbar() {
                       {item.menu}
                     </MenuItem>
                   ))}
-                  <MenuItem>Logout</MenuItem>
                 </Menu>
               </>
             ) : user === "admin" ? (
@@ -122,11 +124,18 @@ function Navbar() {
                   open={Boolean(open)}
                   onClose={menuClose}
                 >
-                  {adminMenu.map((item) => (
-                    <MenuItem onClick={menuClose} key={item}>
-                      {item}
+                  {adminMenu.map((item, index) => (
+                    <MenuItem
+                      onClick={() => {
+                        menuClose();
+                        toPage(item.link);
+                      }}
+                      key={index}
+                    >
+                      {item.menu}
                     </MenuItem>
-                  ))}
+                  ))}{" "}
+                  <MenuItem>Logout</MenuItem>
                 </Menu>
               </>
             ) : (
