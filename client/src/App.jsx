@@ -7,6 +7,7 @@ import Profile from "./pages/users/Profile";
 import Order from "./pages/users/order/Orders";
 import Dashboard from "./pages/admin/dashboard/Dashboard";
 import UserPage from "./pages/admin/users/UserPage";
+import ProductsPage from "./pages/admin/products/ProductsPage";
 function App() {
   return (
     <Router>
@@ -17,7 +18,8 @@ function App() {
         <Route path="/profile" element={<Profile />} />{" "}
         <Route path="/order" element={<Order />} />
         <Route path="/admin-dashboard" element={<Dashboard />} />
-        <Route path="/admin-pelanggan" element={<UserPage />} />
+        <Route path="/admin-pelanggan" element={<UserPage />} />{" "}
+        <Route path="/admin-produk" element={<ProductsPage />} />
       </Routes>
     </Router>
   );

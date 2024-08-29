@@ -25,7 +25,7 @@ export const Menus = [
   },
   {
     label: "Product",
-    link: "/admin-product",
+    link: "/admin-produk",
     icon: <LocalMallIcon sx={{ color: blue[800] }} />,
   },
   {
