@@ -9,6 +9,7 @@ import Dashboard from "./pages/admin/dashboard/Dashboard";
 import UserPage from "./pages/admin/users/UserPage";
 import ProductsPage from "./pages/admin/products/ProductsPage";
 import OrdersPage from "./pages/admin/orders/OrdersPage";
+import ReportPage from "./pages/admin/report/ReportPage";
 function App() {
   return (
     <Router>
@@ -21,7 +22,8 @@ function App() {
         <Route path="/admin-dashboard" element={<Dashboard />} />
         <Route path="/admin-pelanggan" element={<UserPage />} />{" "}
         <Route path="/admin-produk" element={<ProductsPage />} />{" "}
-        <Route path="/admin-pesanan" element={<OrdersPage />} />
+        <Route path="/admin-pesanan" element={<OrdersPage />} />{" "}
+        <Route path="/admin-laporan" element={<ReportPage />} />{" "}
       </Routes>
     </Router>
   );

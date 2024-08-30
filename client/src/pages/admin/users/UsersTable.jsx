@@ -7,7 +7,7 @@ const column = [
   { id: 4, label: "Nama", width: 120 },
   { id: 5, label: "Email", width: 120 },
   { id: 6, label: "No Handphone", width: 120 },
-  { id: 6, label: "Action", width: 120 },
+  { id: 7, label: "Action", width: 120 },
 ];
 const UsersTable = () => {
   return (

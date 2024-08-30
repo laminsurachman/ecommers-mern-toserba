@@ -35,7 +35,7 @@ export const Menus = [
   },
   {
     label: "Report",
-    link: "/admin-report",
+    link: "/admin-laporan",
     icon: <AssessmentIcon sx={{ color: blue[800] }} />,
   },
 ];
