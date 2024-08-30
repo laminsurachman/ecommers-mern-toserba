@@ -42,7 +42,7 @@ const LoginPage = () => {
           <img
             src="https://static.vecteezy.com/system/resources/thumbnails/005/638/554/small_2x/illustration-isometric-concept-putting-shopping-items-in-online-cart-free-vector.jpg"
             alt=""
-            style={{ height: "100%", width: "100%", objectFit: "cover" }}
+            style={{ objectFit: "cover" }}
           />
         </Box>
         <Box sx={{ flex: 1, p: 4 }}>
