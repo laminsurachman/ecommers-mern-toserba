@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navigate = useNavigate();
-  const user = "admin";
+  const user = "";
   const userMenu = [
     {
       menu: "Profile",
@@ -42,6 +42,7 @@ function Navbar() {
   };
 
   const toHome = () => navigate("/");
+  const toLoginPage = () => navigate("/login");
 
   const toPage = (link) => {
     navigate(link);
@@ -139,7 +140,7 @@ function Navbar() {
                 </Menu>
               </>
             ) : (
-              <IconButton color="inherit">
+              <IconButton color="inherit" onClick={toLoginPage}>
                 {" "}
                 <LoginIcon />{" "}
               </IconButton>

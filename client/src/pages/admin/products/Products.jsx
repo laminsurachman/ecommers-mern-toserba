@@ -20,7 +20,7 @@ const Products = () => {
       <CardMedia
         component="img"
         height={225}
-        image="https://images.pexels.com/photos/4641825/pexels-photo-4641825.jpeg?auto=compress&cs=tinysrgb&w=600"
+        image="http://app1.jadidalmagribi.com/products/5c55cba8-a016-43c7-b3ec-f5f75f7c37b0-1701780388411-1724918856661.jpg"
       />
       <Box
         sx={{

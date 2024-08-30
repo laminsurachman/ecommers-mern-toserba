@@ -10,10 +10,15 @@ import UserPage from "./pages/admin/users/UserPage";
 import ProductsPage from "./pages/admin/products/ProductsPage";
 import OrdersPage from "./pages/admin/orders/OrdersPage";
 import ReportPage from "./pages/admin/report/ReportPage";
+import LoginPage from "./components/login/LoginPage";
+import SignupPage from "./components/signup/SignupPage";
+
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/login" element={<LoginPage />} />{" "}
+        <Route path="/daftar" element={<SignupPage />} />{" "}
         <Route path="/" element={<Home />} />{" "}
         <Route path="/:name" element={<DetailProduct />} />{" "}
         <Route path="/cart" element={<Cart />} />{" "}
