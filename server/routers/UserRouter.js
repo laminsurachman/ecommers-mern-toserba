@@ -1,9 +1,16 @@
 import express from "express";
-
+import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 
 const router = express.Router();
 
+//membuat Token
+
+function genereateToken(user) {
+  return jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.EXPIRES,
+  });
+}
 //Register
 router.post("/register", async (req, res) => {
   try {
@@ -18,7 +25,8 @@ router.post("/register", async (req, res) => {
         if (err) {
           return res.status(500).json({ error: err.message });
         } else {
-          res.status(200).json({ success: true, user });
+          const token = genereateToken(user);
+          res.status(200).cookie("token", token).json({ token });
         }
       }
     );
