@@ -1,12 +1,12 @@
 import "dotenv/config";
 import app from "./app.js";
+import connectToDatabase from "./config/connection.js";
 
-app.get("/", (req, res) => {
-  res.send("server aktif");
-});
+// Connect to the database
+connectToDatabase();
 
-const port = 3000;
-
-app.listen(port, () => {
-  console.log(`server aktif di port ${port}`);
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
