@@ -1,6 +1,7 @@
 import express from "express";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
+import passport from "passport";
 
 const router = express.Router();
 
@@ -41,7 +42,7 @@ router.post("/login", async (req, res) => {
   try {
     passport.authenticate("local", (err, user) => {
       if (err) {
-        return res.status(500).json({ message: err.message });
+        return res.status(500).json({ error: err.message });
       } else if (!user) {
         return res
           .status(404)
@@ -49,7 +50,7 @@ router.post("/login", async (req, res) => {
       } else {
         req.login(user, function (err) {
           if (err) {
-            return res.status(500).json({ message: err.message });
+            return res.status(500).json({ error: err.message });
           }
           const token = genereateToken(user);
 
@@ -58,7 +59,7 @@ router.post("/login", async (req, res) => {
       }
     })(req, res);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    return res.status(500).json({ error: error.message });
   }
 });
 

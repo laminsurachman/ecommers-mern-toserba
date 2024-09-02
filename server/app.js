@@ -5,7 +5,9 @@ import bodyParser from "body-parser";
 import session from "express-session";
 import passport from "passport";
 import User from "./models/User.js";
-import userRouter from "./routers/UserRouter.js";
+import userRoutes from "./routes/UserRoutes.js";
+import productRoutes from "./routes/ProductRoutes.js";
+
 const app = express();
 
 // Middleware setup
@@ -36,6 +38,11 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use("/user", userRouter);
+app.use("/user", userRoutes);
+app.use("/show-products", productRoutes);
+
+app.get("/", (req, res) => {
+  res.send("server aktif");
+});
 
 export default app;
