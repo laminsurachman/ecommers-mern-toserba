@@ -8,7 +8,7 @@ import User from "./models/User.js";
 import userRoutes from "./routes/UserRoutes.js";
 import productRoutes from "./routes/ProductRoutes.js";
 import CartRoutes from "./routes/CartRoutes.js";
-
+import ShippingRoutes from "./routes/ShippingRoutes.js";
 const app = express();
 
 // Middleware setup
@@ -42,6 +42,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use("/user", userRoutes);
 app.use("/products", productRoutes);
 app.use("/cart", CartRoutes);
+app.use("/shipping", ShippingRoutes);
 
 app.get("/", (req, res) => {
   res.send("server aktif");
