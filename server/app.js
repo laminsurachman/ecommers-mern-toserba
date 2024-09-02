@@ -9,6 +9,8 @@ import userRoutes from "./routes/UserRoutes.js";
 import productRoutes from "./routes/ProductRoutes.js";
 import CartRoutes from "./routes/CartRoutes.js";
 import ShippingRoutes from "./routes/ShippingRoutes.js";
+import paymentRoutes from "./routes/PaymentRoutes.js";
+
 const app = express();
 
 // Middleware setup
@@ -43,9 +45,6 @@ app.use("/user", userRoutes);
 app.use("/products", productRoutes);
 app.use("/cart", CartRoutes);
 app.use("/shipping", ShippingRoutes);
-
-app.get("/", (req, res) => {
-  res.send("server aktif");
-});
+app.use("/payment", paymentRoutes);
 
 export default app;
