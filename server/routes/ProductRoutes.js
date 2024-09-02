@@ -1,9 +1,10 @@
 import express from "express";
 import Product from "../models/Product.js";
+import { authenticate } from "../middleware/auth.js";
 
 const router = express.Router();
 
-router.post("/add-product", async (req, res) => {
+router.post("/add-product", authenticate(["admin"]), async (req, res) => {
   try {
     const { name, desc, category, price, capital, stock, weight } = req.body;
 
@@ -66,6 +67,7 @@ router.delete("/delete/:id", async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 });
+
 router.put(
   "/update/:id",
 
