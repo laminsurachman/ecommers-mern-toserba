@@ -4,7 +4,7 @@ import Product from "../models/Product.js";
 const router = express.Router();
 router.get("/show-products", async (req, res, next) => {
   try {
-    const products = await Product.find().sort({ createdAt: -1 });
+    const products = await Product.find();
 
     res.status(200).json(products);
   } catch (error) {

@@ -39,7 +39,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use("/user", userRoutes);
-app.use("/show-products", productRoutes);
+app.use("/products", productRoutes);
 
 app.get("/", (req, res) => {
   res.send("server aktif");
