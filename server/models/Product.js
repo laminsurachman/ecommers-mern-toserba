@@ -15,7 +15,7 @@ const productSchema = new Schema(
     reviews: [
       {
         user: { type: Schema.Types.ObjectId },
-
+        comment: { type: String, required: false },
         rating: { type: Number, required: false, default: 0 },
         review: { type: String, required: false },
       },
