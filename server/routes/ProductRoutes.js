@@ -53,7 +53,7 @@ router.get("/:name", async (req, res, next) => {
     return res.status(500).json({ error: error.message });
   }
 });
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/delete/:id", authenticate(["admin"]), async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
 
@@ -70,6 +70,7 @@ router.delete("/delete/:id", async (req, res) => {
 
 router.put(
   "/update/:id",
+  authenticate(["admin"]),
 
   async (req, res) => {
     try {
